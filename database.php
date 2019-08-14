@@ -128,14 +128,6 @@ class Database {
                 $sql .= " JOIN " . $item['joinTable'] . " ON " . $item['joinOn'];
             }
             return $sql;
-            /*
-            $sql = "";
-            if($this->join['joinType'] != FALSE) {
-                $sql = " " . strtoupper($this->join['joinType']);
-            }
-
-            return $sql .= " JOIN " . $this->join['joinTable'] . " ON " . $this->join['joinOn'];
-            */
         }
     }
 
