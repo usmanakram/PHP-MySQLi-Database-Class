@@ -45,6 +45,7 @@ class Database {
 
     public function select($arg) {
         $this->select = $arg;
+        return $this;
     }
 
     private function getSelect() {
@@ -57,6 +58,7 @@ class Database {
 
     public function from($arg) {
         $this->from = $arg;
+        return $this;
     }
 
     private function getFrom() {
@@ -73,6 +75,7 @@ class Database {
         } else if(is_string($arg1) && is_string($arg2)) {
             $this->where[$arg1] = $arg2;
         }
+        return $this;
     }
 
     private function getWhere() {
@@ -89,6 +92,7 @@ class Database {
 
     public function order_by($order_by, $order) {
         $this->orderBy = array('order_by' => $order_by, 'order' => $order);
+        return $this;
     }
 
     private function getOrderBy() {
@@ -99,6 +103,7 @@ class Database {
 
     public function limit($arg) {
         $this->limit = $arg;
+        return $this;
     }
 
     private function getLimit() {
@@ -109,6 +114,7 @@ class Database {
 
     public function join($joinTable, $joinOn, $joinType = FALSE) {
         $this->join[] = array('joinTable' => $joinTable, 'joinOn' => $joinOn, 'joinType' => $joinType);
+        return $this;
     }
 
     private function getJoin() {
