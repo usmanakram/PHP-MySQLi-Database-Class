@@ -178,7 +178,17 @@ class Database {
     }
 
     public function result_array() {
-        return $this->result->fetch_all(MYSQLI_ASSOC);
+        // return $this->result->fetch_all(MYSQLI_ASSOC);
+        $data = [];
+        
+        if ( method_exists($this->result, 'fetch_all') ) {
+            $data = $this->result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            while ($row = $this->result->fetch_assoc())
+                $data[] = $row;
+        }
+
+        return $data;
     }
 
     public function row() {
